@@ -1,0 +1,23 @@
+<script type="module">
+  // @ts-check
+  customElements.define(
+    "my-button",
+    class extends HTMLElement {
+      trigger = this.querySelector("button");
+      connectedCallback() {
+        if (this.trigger) {
+          this.trigger.addEventListener("click", () => alert("Alert!"));
+        }
+      }
+    }
+  );
+</script>
+<button><slot></slot></button>
+<style>
+  my-button button {
+    border: none;
+    background-color: darkblue;
+    padding: 0.5rem 0.75rem;
+    color: white;
+  }
+</style>
